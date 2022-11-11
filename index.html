@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #map {
+                height: 400px;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h3 id="leehojun">My Google Maps Demo</h3>
+        <div id="map"></div>
+        <script type="module" src="index.js"></script>
+        <script src="marker.js"></script>
+
+        <script
+            async
+            defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"
+        ></script>
+    </body>
+</html>
+
+<!-- 
+고려사항
+1. 오류 잡아내기 (캡쳐 해놓음) // 탑레벨 await제거
+2. marker.js 필요한가?
+3. addEventListener를 어떻게 사용해야 하는가
+4. marker.js에 있는 정보 최대한 활용해보기
+5. 무지의 상태에서 시작했기 때문에 성장 과정 리드미에 기록 
+    ex) API 발급 방법 / 생성자 반복문에 사용하는 방법 / 비동기
+6. 레포를 처음에는 private으로 설정한 상태에서 수정을 하고, 나중에 public으로 돌린 후 잔디 확인했을 때 그동안에 반영했던 사항들이 잔디에 확인이 되는지(잔디 머리 심기는지) 확인해보기
+-->
