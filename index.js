@@ -1,96 +1,76 @@
-const data = [];
-
-await (async () => {
-    try {
-        const response = await fetch(
-            "https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=odwzSJ%2BgVLaO6kVbvhVD8PRSNEKy3mxX%2BTnVjjGOo0DKqIWnZjWtKAwzie4OgHNFWFMappAtURVCl8rlp2lboQ%3D%3D"
-        );
-
-        const renderPages = await response.json();
-
-        for (let i = 1; i <= renderPages["perPage"]; i++) {
-            const renderPage = await fetch(
-                `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=${i}&perPage=10&serviceKey=odwzSJ%2BgVLaO6kVbvhVD8PRSNEKy3mxX%2BTnVjjGOo0DKqIWnZjWtKAwzie4OgHNFWFMappAtURVCl8rlp2lboQ%3D%3D`
-            ).then((response) => response.json());
-
-            data.push(...renderPage["data"]);
-        }
-    } catch (e) {
-        console.error(e);
-    }
-})();
-// console.log(data[1]["위도"]);
-
 function initMap() {
-    const jeju = { lat: 33.3616658, lng: 126.5204118 };
+    const jejuAirport = { lat: 33.5066211, lng: 126.49281 };
     const map = new google.maps.Map(document.getElementById("map"), {
         zoom: 10,
-        center: jeju,
+        center: jejuAirport,
     });
 
-    // 현재 지도의 기준점 (지도는 오름만 표시되어도 됨 따라서 없어도 될듯)
-    // new google.maps.Marker({
-    //     position: jeju,
-    //     map: map,
-    // });
+    const info = [];
 
-    // new google.maps.Marker({
-    //     position: { lat: 33.478135, lng: 126.57017 },
-    //     map: map,
-    // });
+    fetch(
+        "https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=odwzSJ%2BgVLaO6kVbvhVD8PRSNEKy3mxX%2BTnVjjGOo0DKqIWnZjWtKAwzie4OgHNFWFMappAtURVCl8rlp2lboQ%3D%3D"
+    )
+        .then((v) => v.json())
+        .then((data) => {
+            info.push(data.data);
+            let test = {
+                오름명: "제주공항",
+                설명: "제주공항입니다",
+                위도: "33.5066211",
+                경도: "126.49281",
+            };
+            info[0].push(test);
+            // info[0]이 아니라 data.data로도 왜 가능..?
+            let position = info[0];
+            // console.log(data.data);
+            // console.log(info[0]);
+            const infowindow = new google.maps.InfoWindow();
 
-    // Marker 공부하기
-    // 위도, 경도를 정확하게 표현하기 위해서 parseFloat을 사용함.
-    let i = 0;
-    while (i <= data.length) {
-        new google.maps.Marker({
-            position: {
-                name: data[i]["위치"],
-                lat: parseFloat(data[i]["위도"]),
-                lng: parseFloat(data[i]["경도"]),
-            },
-            map: map,
+            for (let i in position) {
+                let 오름명 = position[i].오름명;
+                let 설명 = position[i].설명;
+                let 위도 = parseFloat(position[i].위도);
+                let 경도 = parseFloat(position[i].경도);
+                // console.log(오름명);
+                // console.log(설명);
+                // console.log(위도);
+                // console.log(경도);
+
+                new google.maps.Circle({
+                    strokeColor: "green",
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: "green",
+                    fillOpacity: 0.35,
+                    map,
+                    center: {
+                        lat: 위도,
+                        lng: 경도,
+                    },
+                    radius: 1000,
+                });
+
+                let marker = new google.maps.Marker({
+                    position: {
+                        lat: 위도,
+                        lng: 경도,
+                    },
+                    map: map,
+                    // icon 바꾸기
+                });
+
+                https: marker.addListener("click", () => {
+                    map.panTo(marker.position);
+                    // 글자 줄바꿈 효과 넣고 싶음
+                    const explain = `${오름명} : ${설명}`;
+                    infowindow.setContent(explain);
+                    infowindow.open({
+                        anchor: marker,
+                        map,
+                    });
+                });
+            }
         });
-        i++;
-        console.log(data[i]["오름명"]);
-    }
-
-    // const jeju = { lat: 33.3616658, lng: 126.5204118 };
-    // const map = new google.maps.Map(document.getElementById("map"), {
-    //     zoom: 15,
-    //     center: jeju,
-    // });
-
-    // new google.maps.Marker({
-    //     position: jeju,
-    //     map: map,
-    // });
-
-    // new google.maps.Marker({
-    //     position: { lat: 33.478135, lng: 126.57017 },
-    //     map: map,
-    // });
-
-    // new google.maps.Marker({
-    //     position: {
-    //         lat: parseFloat(data[1]["위도"]),
-    //         lng: parseFloat(data[1]["경도"]),
-    //     },
-    //     map: map,
-    // });
-
-    // new google.maps.Marker({
-    //     position: {
-    //         lat: parseFloat(data[2]["위도"]),
-    //         lng: parseFloat(data[2]["경도"]),
-    //     },
-    //     map: map,
-    // });
-
-    // new google.maps.Marker({
-    //     position: { lat: data[3]["위도"], lng: data[3]["경도"] },
-    //     map: map,
-    // });
 }
 
 initMap();
