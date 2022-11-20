@@ -1,8 +1,11 @@
 function initMap() {
-    const jejuAirport = { lat: 33.5066211, lng: 126.49281 };
+    const jejuCenter = { lat: 33.389016, lng: 126.552749 };
+    // new google.maps.Map의 첫 번째 인자는 맵을 포함하고 싶은 html 요소
     const map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 10,
-        center: jejuAirport,
+        // 가능한 정수 범위는 1~20
+        zoom: 11,
+        // 지도의 중심으로 잡고 싶은 부분
+        center: jejuCenter,
     });
 
     const info = [];
@@ -24,7 +27,7 @@ function initMap() {
             let position = info[0];
             // console.log(data.data);
             // console.log(info[0]);
-            const infowindow = new google.maps.InfoWindow();
+            const infoWindow = new google.maps.InfoWindow();
 
             for (let i in position) {
                 let 오름명 = position[i].오름명;
@@ -37,10 +40,10 @@ function initMap() {
                 // console.log(경도);
 
                 new google.maps.Circle({
-                    strokeColor: "green",
+                    strokeColor: "#66A9C6",
                     strokeOpacity: 0.8,
                     strokeWeight: 2,
-                    fillColor: "green",
+                    fillColor: "#66A9C6",
                     fillOpacity: 0.35,
                     map,
                     center: {
@@ -62,9 +65,10 @@ function initMap() {
                 https: marker.addListener("click", () => {
                     map.panTo(marker.position);
                     // 글자 줄바꿈 효과 넣고 싶음
-                    const explain = `${오름명} : ${설명}`;
-                    infowindow.setContent(explain);
-                    infowindow.open({
+                    // const explain = `${오름명}: ${설명}`;
+                    const explain = `<p style="text-align: left; font-weight: bold; color: orange; font-size: 16px">${오름명}</p> <br> <p style="text-align: left">${설명}`
+                    infoWindow.setContent(explain);
+                    infoWindow.open({
                         anchor: marker,
                         map,
                     });

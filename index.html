@@ -1,4 +1,25 @@
 ﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeju Map</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="test"></div>
+    <article class="container">
+        <h1>WELCOME Jeju</h1>
+        <div id="map"></div>
+    </article>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <style>
@@ -12,15 +33,13 @@
     <body>
         <h3 id="leehojun">My Google Maps Demo</h3>
         <div id="map"></div>
-        <script type="module" src="index.js"></script>
+        <script type="module" src="./index.js"></script>
         <script src="marker.js"></script>
         <script
-            async
-            defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"
         ></script>
     </body>
-</html>
+</html> -->
 
 <!-- 
 고려사항
@@ -34,7 +53,23 @@
 
 // 1118
 1. info[0]이 아니라 data.data로도 왜 가능..?
-2. 글자 줄바꿈 효과 넣고 싶음
+2. 글자 줄바꿈 효과, 왼쪽 정렬 ❌
 3. icon 바꾸기
 => 성공 후 4번 ㄱㄱ
 4. 제주도 말고 다른 곳 ex) 빵집, 놀이공원, 맛집, 폭포, ...
+
+
+// 1120
+1. <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"
+        ></script>
+
+        안에 넣어놨던 async랑 defer 삭제했더니 화면이 바로 나옴 (왜 그러지)
+
+2. 마우스 커서 감귤
+3. 배경 제주도
+4. 마우스 호버 시 효과
+5. 검색했을 때, 해당 위치 확대 혹은 모달창
+6. 새로고침 시 제주공항 아이콘 애니메이션 효과
+7. infoWindow.setContent(explain) 설명 창 꾸미기
+8. 마커 이미지, 색깔 변경
