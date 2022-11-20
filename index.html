@@ -1,48 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeju Map</title>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <div class="test"></div>
-    <article class="container">
-        <h1>WELCOME Jeju</h1>
-        <div id="map"></div>
-    </article>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"></script>
-    <script type="module" src="./index.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Jeju Map</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <div class="test"></div>
+        <article class="container">
+            <h1>WELCOME Jeju</h1>
+            <div id="map"></div>
+        </article>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"></script>
+        <script type="module" src="./index.js"></script>
+    </body>
 </html>
 
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <style>
-            #map {
-                height: 400px;
-                width: 100%;
-            }
-        </style>
-    </head>
-
-    <body>
-        <h3 id="leehojun">My Google Maps Demo</h3>
-        <div id="map"></div>
-        <script type="module" src="./index.js"></script>
-        <script src="marker.js"></script>
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdI6HVGtatsWrDm-Q63iz0h8IJGimhEk&callback=initMap"
-        ></script>
-    </body>
-</html> -->
-
-<!-- 
-고려사항
+<!-- 고려사항
 1. 오류 잡아내기 (캡쳐 해놓음) // 탑레벨 await제거
 2. marker.js 필요한가? ❌
 3. addEventListener를 어떻게 사용해야 하는가 ❌
@@ -72,4 +49,4 @@
 5. 검색했을 때, 해당 위치 확대 혹은 모달창
 6. 새로고침 시 제주공항 아이콘 애니메이션 효과
 7. infoWindow.setContent(explain) 설명 창 꾸미기
-8. 마커 이미지, 색깔 변경
+8. 마커 이미지, 색깔 변경 -->

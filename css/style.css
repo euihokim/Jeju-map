@@ -1,11 +1,11 @@
-body{
+body {
     background-image: url(https://images.unsplash.com/photo-1621478763597-11fb71047890?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80);
     background-repeat: no-repeat;
     background-size: cover;
     /* 커서 이미지 적용이 안됨 */
     /* cursor: url(./img/cursor.png) 20 20, auto; */
 }
-.container{
+.container {
     height: 100vh;
     text-align: center;
     padding-top: 100px;
@@ -17,12 +17,12 @@ h1 {
 }
 
 #map {
-    border: 10px solid #9CC0F9;
+    border: 10px solid #9cc0f9;
     border-radius: 2%;
     margin: 50px auto;
     height: 60vh;
     width: 80vh;
-    box-shadow: 1px 1px 10px 1px #9CC0F9;
+    box-shadow: 1px 1px 10px 1px #9cc0f9;
 }
 /* 
 .test {

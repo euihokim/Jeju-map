@@ -66,7 +66,7 @@ function initMap() {
                     map.panTo(marker.position);
                     // 글자 줄바꿈 효과 넣고 싶음
                     // const explain = `${오름명}: ${설명}`;
-                    const explain = `<p style="text-align: left; font-weight: bold; color: orange; font-size: 16px">${오름명}</p> <br> <p style="text-align: left">${설명}`
+                    const explain = `<p style="text-align: left; font-weight: bold; color: orange; font-size: 16px">${오름명}</p> <br> <p style="text-align: left">${설명}`;
                     infoWindow.setContent(explain);
                     infoWindow.open({
                         anchor: marker,
