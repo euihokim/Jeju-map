@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/style.css" />
     </head>
-    <body>
+    <body style="cursor: url(./img/cursor.png) 20 20, auto">
         <div class="test"></div>
         <article class="container">
             <h1>WELCOME Jeju</h1>
@@ -21,8 +21,8 @@
 
 <!-- 고려사항
 1. 오류 잡아내기 (캡쳐 해놓음) // 탑레벨 await제거
-2. marker.js 필요한가? ❌
-3. addEventListener를 어떻게 사용해야 하는가 ❌
+2. marker.js 필요한가? ✅
+3. addEventListener를 어떻게 사용해야 하는가 ✅
 4. marker.js에 있는 정보 최대한 활용해보기 ❓
 5. 무지의 상태에서 시작했기 때문에 성장 과정 리드미에 기록 
     ex) API 발급 방법 / 생성자 반복문에 사용하는 방법 / 비동기
@@ -30,7 +30,7 @@
 
 // 1118
 1. info[0]이 아니라 data.data로도 왜 가능..?
-2. 글자 줄바꿈 효과, 왼쪽 정렬 ❌
+2. 글자 줄바꿈 효과, 왼쪽 정렬 ✅
 3. icon 바꾸기
 => 성공 후 4번 ㄱㄱ
 4. 제주도 말고 다른 곳 ex) 빵집, 놀이공원, 맛집, 폭포, ...
@@ -43,10 +43,19 @@
 
         안에 넣어놨던 async랑 defer 삭제했더니 화면이 바로 나옴 (왜 그러지)
 
-2. 마우스 커서 감귤
+2. 마우스 커서 감귤 ✅ => 왜 인라인으로 했을 때만 가능?
 3. 배경 제주도
 4. 마우스 호버 시 효과
 5. 검색했을 때, 해당 위치 확대 혹은 모달창
 6. 새로고침 시 제주공항 아이콘 애니메이션 효과
 7. infoWindow.setContent(explain) 설명 창 꾸미기
-8. 마커 이미지, 색깔 변경 -->
+8. 마커 이미지, 색깔 변경 
+
+
+// 1127
+1. for문 돌았지만 X
+>> perPage를 10 -> 100으로 변경하여 구현은 함!
+
+2. 재영님 코드  70~94줄
+> line 81 renderPages["perPage"]를 위해 line 73 작성!
+-->
