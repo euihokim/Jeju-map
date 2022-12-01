@@ -8,6 +8,7 @@ function initMap() {
         center: jejuCenter,
     });
 
+    // 비행기 gif
     let marker = new google.maps.Marker({
         position: {
             lat: 33.475016,
@@ -17,6 +18,7 @@ function initMap() {
         icon: "./img/airplane.gif",
     });
 
+    // 제주공항 위치 : 돌하르방
     let marker2 = new google.maps.Marker({
         position: {
             lat: 33.5066211,
@@ -26,11 +28,12 @@ function initMap() {
         icon: "./img/dol-hareubang.png",
     });
 
+    // info에 정보 담기
     const info = [];
 
-    async function test() {
+    async function render() {
         let whatInfoWindow = {
-            content: `<p style="text-align: left; font-weight: bold; color: orange; font-size: 16px">welcome everyone~~</p> <br> <p style="text-align: left">`,
+            content: `<p style="text-align: left; font-weight: bold; color: orange; font-size: 20px">🍊 welcome everyone 🍊</p> <br> <p style="text-align: left">`,
             position: { lat: 33.5066211, lng: 126.49281 },
             // 고정된 지점에서 너비, 높이 값만큼 움직임 (음수도 가능)
             pixelOffset: new google.maps.Size(0.5, -30),
@@ -38,6 +41,7 @@ function initMap() {
             maxWidth: 300,
         };
 
+        // 환영인사 정보창
         let markerAnchor = new google.maps.Marker({
             position: { lat: 33.5066211, lng: 126.49281 },
             map: map,
@@ -55,13 +59,18 @@ function initMap() {
             infoWindow.close();
         }, 5000);
 
-        await fetch(
-            `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=100&serviceKey=odwzSJ%2BgVLaO6kVbvhVD8PRSNEKy3mxX%2BTnVjjGOo0DKqIWnZjWtKAwzie4OgHNFWFMappAtURVCl8rlp2lboQ%3D%3D`
-        )
-            .then((res) => res.json())
-            .then((res) => info.push(res.data));
+        // 각 페이지 순회
+        for (let i = 1; i <= 10; i++) {
+            await fetch(
+                `https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=${i}&perPage=10&serviceKey=odwzSJ%2BgVLaO6kVbvhVD8PRSNEKy3mxX%2BTnVjjGOo0DKqIWnZjWtKAwzie4OgHNFWFMappAtURVCl8rlp2lboQ%3D%3D`
+            )
+                .then((res) => res.json())
+                .then((res) => info.push(res.data));
+        }
+        // console.log(info.flat().length);
 
-        for (let i = 0; i < info.flat().length; i++) {
+        // 오름 정보
+        for (let i = 1; i < 90; i++) {
             let 오름명 = info.flat()[i]["오름명"];
             let 설명 = info.flat()[i]["설명"];
             let 위도 = parseFloat(info.flat()[i]["위도"]);
@@ -86,13 +95,14 @@ function initMap() {
                     lat: 위도,
                     lng: 경도,
                 },
-                icon: "./img/2.png",
+                icon: "./img/flag.png",
                 map: map, // icon 바꾸기
             });
 
             // 다른 infowindow 눌렀을 때 원래 것이 안사라진 이유
             // const infoWindow = new google.maps.InfoWindow();
 
+            // 오름 마커 클릭 시 정보창 띄우기
             https: marker.addListener("click", () => {
                 map.panTo(marker.position);
                 // 글자let test =  줄바꿈 효과 넣고 싶음
@@ -106,6 +116,6 @@ function initMap() {
             });
         }
     }
-    test();
+    render();
 }
 initMap();
