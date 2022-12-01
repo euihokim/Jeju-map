@@ -10,7 +10,7 @@ function initMap() {
 
     let marker = new google.maps.Marker({
         position: {
-            lat: 33.435016,
+            lat: 33.475016,
             lng: 126.495049,
         },
         map: map,
@@ -68,11 +68,11 @@ function initMap() {
             let 경도 = parseFloat(info.flat()[i]["경도"]);
 
             new google.maps.Circle({
-                strokeColor: "#66A9C6",
+                strokeColor: "orange",
                 strokeOpacity: 0.8,
-                strokeWeight: 2,
-                fillColor: "#66A9C6",
-                fillOpacity: 0.35,
+                strokeWeight: 3,
+                fillColor: "orange",
+                fillOpacity: 0.5,
                 map,
                 center: {
                     lat: 위도,
@@ -86,7 +86,7 @@ function initMap() {
                     lat: 위도,
                     lng: 경도,
                 },
-                // icon: "./img/flag.png",
+                icon: "./img/2.png",
                 map: map, // icon 바꾸기
             });
 
