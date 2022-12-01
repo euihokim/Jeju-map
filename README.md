@@ -8,9 +8,9 @@ https://euihokim.github.io/Jeju-map/<br>
 <br>
 https://www.data.go.kr/tcs/dss/selectFileDataDetailView.do?publicDataPk=15096996#
 <br><br>
-1.1<br> 오픈API ➡ 활용신청 ➡ 마이페이지 ➡ 개발계정 ☑ 인증키 확인
+**1.1**<br> 오픈API ➡ 활용신청 ➡ 마이페이지 ➡ 개발계정 ☑ 인증키 확인
 <br><br>
-1.2<br> API목록 ➡ OpenAPI 실행 준비 ➡ OpenAPI 호출 ☑ Request URL 확인
+**1.2**<br> API목록 ➡ OpenAPI 실행 준비 ➡ OpenAPI 호출 ☑ Request URL 확인
 <br><br>
 ✅ ``https://api.odcloud.kr/api/15096996/v1/uddi:6738a90c-ec96-4245-a187-9528cea62904?page=1&perPage=10&serviceKey=인증키``
 <br><br>
@@ -18,10 +18,10 @@ https://www.data.go.kr/tcs/dss/selectFileDataDetailView.do?publicDataPk=15096996
 <br>
 https://console.cloud.google.com/google/maps-apis/start
 <br><br>
-2.1<br>
+**2.1**<br>
 ➡ API ➡ Maps ➡ JavaScript API ☑ 인증키 확인 
 <br><br>
-2.2<br>
+**2.2**<br>
 ➡사용자 인증 정보<br>
 ➡ API 키<br>
 ➡ 애플리케이션 제한사항 ADD 하기<br><br>
@@ -30,7 +30,7 @@ https://console.cloud.google.com/google/maps-apis/start
 ![image](https://user-images.githubusercontent.com/112460383/205119700-7b1aeb21-e858-4b04-8aa3-e7a7c174d394.png)<br><br>
 ✅ API 키 ``https://maps.googleapis.com/maps/api/js?key=API Key&callback=initMap``
 <br><br>
-## 2. 지도 표시를 위해 사용한 기능
+## <span style="color: orange">2. 지도 표시를 위해 사용한 기능</span>
 ```JS
 // 브라우저에서 로드하는 Google Maps JavaScript API 방식
 google.maps
