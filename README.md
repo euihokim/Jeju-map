@@ -1,3 +1,3 @@
 # Jeju-map
 https://euihokim.github.io/Jeju-map/
-![ㅇㅇ](https://user-images.githubusercontent.com/104756433/205114243-b4e57385-bdc1-427d-ac10-89f98115ec03.gif)
+<div align=center>![ㅇㅇ](https://user-images.githubusercontent.com/104756433/205114930-bf03ab0b-d922-4353-987b-c07652f94397.gif)</div>
