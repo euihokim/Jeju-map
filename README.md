@@ -19,7 +19,7 @@ https://www.data.go.kr/tcs/dss/selectFileDataDetailView.do?publicDataPk=15096996
 https://console.cloud.google.com/google/maps-apis/start
 <br><br>
 **2.1**<br>
-➡ API ➡ Maps ➡ JavaScript API ☑ 인증키 확인 
+API ➡ Maps ➡ JavaScript API ☑ 인증키 확인 
 <br><br>
 **2.2**<br>
 ➡ 사용자 인증 정보<br>
