@@ -22,7 +22,7 @@ https://console.cloud.google.com/google/maps-apis/start
 ➡ API ➡ Maps ➡ JavaScript API ☑ 인증키 확인 
 <br><br>
 **2.2**<br>
-➡사용자 인증 정보<br>
+➡ 사용자 인증 정보<br>
 ➡ API 키<br>
 ➡ 애플리케이션 제한사항 ADD 하기<br><br>
 ![image](https://user-images.githubusercontent.com/112460383/205119301-f26c855b-97b2-40ba-9435-e857c06d41e6.png)<br><br>
